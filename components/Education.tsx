@@ -10,21 +10,27 @@ type EducationEntry = {
 
 const timeline: EducationEntry[] = [
   {
-    period: "20XX — Present",
-    school: "Your College / University Name",
+    period: "2023 — Present",
+    school: "San Pablo Colleges",
     level: "College",
-    note: "Expected graduation MONTH YYYY",
+    note: "Expected graduation July 2027",
     status: "current",
   },
   {
-    period: "20XX — 20XX",
-    school: "Your Senior High School Name",
-    level: "Junior & Senior High School",
+    period: "2021 — 2023",
+    school: "MOver International School",
+    level: "Senior High School",
     status: "past",
   },
   {
-    period: "20XX — 20XX",
-    school: "Your Elementary School Name",
+    period: "2017 — 20221",
+    school: "Las Piñas National High School - Almanza",
+    level: "Junior High School",
+    status: "past",
+  },
+  {
+    period: "2011 — 2017",
+    school: "Almanza Elementary School",
     level: "Elementary",
     status: "past",
   },
