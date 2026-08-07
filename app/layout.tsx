@@ -26,9 +26,24 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ausimnla-portfolio.vercel.app"),
   title: "ausimnla — Frontend / UI Developer",
   description:
     "Portfolio of ausimnla, a frontend / UI developer building fast, accessible interfaces.",
+  openGraph: {
+    type: "website",
+    title: "ausimnla — Frontend / UI Developer",
+    description:
+      "Portfolio of ausimnla, a frontend / UI developer building fast, accessible interfaces.",
+    images: ["/opengraph.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ausimnla — Frontend / UI Developer",
+    description:
+      "Portfolio of ausimnla, a frontend / UI developer building fast, accessible interfaces.",
+    images: ["/opengraph.png"],
+  },
 };
 
 export default function RootLayout({
