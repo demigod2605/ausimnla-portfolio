@@ -3,6 +3,7 @@ const marqueeItems = [
 ];
 
 import Reveal from "./Reveal";
+import RealtimeClock from "./RealtimeClock";
 
 export default function Hero() {
   const loop = [...marqueeItems, ...marqueeItems];
@@ -19,9 +20,12 @@ export default function Hero() {
           className="absolute top-24 left-0 sm:-left-10 w-56 h-56 bg-violet/10 rounded-full blur-3xl -z-10"
         />
 
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded border border-line font-mono text-[11px] uppercase tracking-widest text-cyan mb-6">
-          <span className="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse2" />
-          status: available for work
+        <div className="mb-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded border border-line font-mono text-[11px] uppercase tracking-widest text-cyan">
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse2" />
+            status: available for work
+          </div>
+          <RealtimeClock />
         </div>
 
         <h1 className="font-display font-bold text-5xl sm:text-7xl leading-[0.95] tracking-tight max-w-3xl text-text">
