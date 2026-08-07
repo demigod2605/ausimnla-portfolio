@@ -11,12 +11,10 @@ type Mode = "compose" | "intent" | "mailto";
 
 function detectMode(): Mode {
   const ua = navigator.userAgent;
-  const isMobile = /Android|iPhone|iPad|iPod/i.test(ua);
-  const isAndroidChrome =
-    /Android/.test(ua) &&
-    /Chrome/.test(ua) &&
-    !/SamsungBrowser|Edg\/|OPR\/|Vivaldi|YaBrowser|MiuiBrowser/.test(ua);
-  if (isAndroidChrome) return "intent";
+  const isAndroid = /Android/i.test(ua);
+  const isMobile = isAndroid || /iPhone|iPad|iPod/i.test(ua);
+  const isAndroidFirefox = isAndroid && /Firefox|FxiOS/i.test(ua);
+  if (isAndroid && !isAndroidFirefox) return "intent";
   if (isMobile) return "mailto";
   return "compose";
 }
