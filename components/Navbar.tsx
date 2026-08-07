@@ -16,7 +16,7 @@ export default function Navbar() {
           <Logo
             size={28}
             gradientId="logo-grad-nav"
-            className="transition-all duration-200 group-hover:drop-shadow-[0_0_6px_rgba(94,234,212,0.5)]"
+            className="transition-all duration-200 group-hover:drop-shadow-[0_0_6px_rgba(0,255,65,0.5)]"
           />
           ausimnla
         </a>
