@@ -1,6 +1,8 @@
+/* stylelint-disable at-rule-no-unknown */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* stylelint-enable at-rule-no-unknown */
 
 html {
   scroll-behavior: smooth;
@@ -40,7 +42,8 @@ body {
   outline-offset: 2px;
 }
 
-/* corner-bracket decoration used by Panel.tsx */.corner-brackets::before,
+/* corner-bracket decoration used by Panel.tsx */
+.corner-brackets::before,
 .corner-brackets::after,
 .corner-brackets > .bracket-tl,
 .corner-brackets > .bracket-br {
