@@ -18,7 +18,7 @@ const timeline: EducationEntry[] = [
   },
   {
     period: "2021 — 2023",
-    school: "MOver International School",
+    school: "Movers International School",
     level: "Senior High School",
     status: "past",
   },
