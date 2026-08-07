@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const EMAIL = "shaneaustinmmanila@gmail.com";
 const MAILTO = `mailto:${EMAIL}`;
-const GMAIL_COMPOSE = `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}`;
+const GMAIL_COMPOSE = `https://mail.google.com/mail/u/0/?to=${EMAIL}&tf=cm`;
 const GMAIL_INTENT = `intent:${EMAIL}#Intent;scheme=mailto;action=android.intent.action.SENDTO;package=com.google.android.gm;S.browser_fallback_url=${encodeURIComponent(GMAIL_COMPOSE)};end`;
 
 type Mode = "compose" | "intent" | "mailto";
