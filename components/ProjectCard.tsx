@@ -1,8 +1,63 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { Project } from "@/lib/types";
 import Panel from "./Panel";
+
+function ImageScroller({
+  images,
+  imgClass,
+}: {
+  images: { src: string; alt: string }[];
+  imgClass: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  function scroll(direction: 1 | -1) {
+    ref.current?.scrollBy({ left: direction * 280, behavior: "smooth" });
+  }
+
+  return (
+    <div className="relative">
+      <div
+        ref={ref}
+        className="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1 snap-x scroll-smooth"
+      >
+        {images.map((image) => (
+          <img
+            key={image.src}
+            src={image.src}
+            alt={image.alt}
+            loading="lazy"
+            className={`object-cover object-top rounded border border-line shrink-0 snap-start ${imgClass}`}
+          />
+        ))}
+      </div>
+      <button
+        type="button"
+        aria-label="Previous screenshots"
+        onClick={(e) => {
+          e.stopPropagation();
+          scroll(-1);
+        }}
+        className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full border border-line bg-void/80 text-cyan hover:bg-cyan hover:text-void transition-colors"
+      >
+        ‹
+      </button>
+      <button
+        type="button"
+        aria-label="Next screenshots"
+        onClick={(e) => {
+          e.stopPropagation();
+          scroll(1);
+        }}
+        className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full border border-line bg-void/80 text-cyan hover:bg-cyan hover:text-void transition-colors"
+      >
+        ›
+      </button>
+    </div>
+  );
+}
 
 export default function ProjectCard({
   project,
@@ -49,17 +104,10 @@ export default function ProjectCard({
         {!open && (
           <>
             {project.images && project.images.length > 0 && (
-              <div className="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1 snap-x">
-                {project.images.map((image) => (
-                  <img
-                    key={image.src}
-                    src={image.src}
-                    alt={image.alt}
-                    loading="lazy"
-                    className="w-64 h-40 object-cover object-top rounded border border-line shrink-0 snap-start"
-                  />
-                ))}
-              </div>
+              <ImageScroller
+                images={project.images}
+                imgClass="w-64 h-40"
+              />
             )}
 
             <p className="text-sm leading-relaxed text-muted line-clamp-2">
@@ -82,17 +130,10 @@ export default function ProjectCard({
         {open && (
           <div className="expand-in grid sm:grid-cols-2 gap-6">
             {project.images && project.images.length > 0 && (
-              <div className="flex flex-col gap-4">
-                {project.images.map((image) => (
-                  <img
-                    key={image.src}
-                    src={image.src}
-                    alt={image.alt}
-                    loading="lazy"
-                    className="w-full object-cover object-top rounded border border-line"
-                  />
-                ))}
-              </div>
+              <ImageScroller
+                images={project.images}
+                imgClass="w-80 h-48"
+              />
             )}
 
             <div className="flex flex-col gap-4">
