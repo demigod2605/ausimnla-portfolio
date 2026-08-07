@@ -132,7 +132,7 @@ export default function ProjectCard({
             {project.images && project.images.length > 0 && (
               <ImageScroller
                 images={project.images}
-                imgClass="w-80 h-48"
+                imgClass="w-full h-72"
               />
             )}
 
