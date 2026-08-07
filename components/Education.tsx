@@ -23,7 +23,7 @@ const timeline: EducationEntry[] = [
     status: "past",
   },
   {
-    period: "2017 — 20221",
+    period: "2017 — 2021",
     school: "Las Piñas National High School - Almanza",
     level: "Junior High School",
     status: "past",
