@@ -4,6 +4,7 @@ const marqueeItems = [
 
 import Reveal from "./Reveal";
 import RealtimeClock from "./RealtimeClock";
+import { socials } from "@/lib/socials";
 
 export default function Hero() {
   const loop = [...marqueeItems, ...marqueeItems];
@@ -50,7 +51,20 @@ export default function Hero() {
           and interfaces that hold up under scrutiny.
         </p>
 
-        <div className="mt-8 flex flex-wrap gap-4 font-mono text-sm">
+        <div className="mt-8 flex flex-wrap items-center gap-3 font-mono text-sm">
+          {socials.map((social) => (
+            <a
+              key={social.name}
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.name}
+              className="px-3 py-2.5 rounded border border-line text-muted hover:text-cyan hover:border-cyan/50 transition-all"
+            >
+              <social.Icon className="w-4 h-4" aria-hidden />
+            </a>
+          ))}
+          <span className="hidden sm:inline-block w-px h-6 bg-line mx-1" aria-hidden />
           <a
             href="#projects"
             className="px-5 py-2.5 rounded border border-cyan/50 text-cyan hover:bg-cyan hover:text-void hover:shadow-glow transition-all"
