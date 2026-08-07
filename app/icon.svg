@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
   <defs>
     <linearGradient id="a" x1="8" y1="8" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#7AA2FF" />
-      <stop offset="100%" stop-color="#BB86FC" />
+      <stop offset="0%" stop-color="#00FF41" />
+      <stop offset="100%" stop-color="#66FF99" />
     </linearGradient>
   </defs>
-  <rect x="1" y="1" width="30" height="30" rx="7" fill="#0A0D1E" stroke="#232B4D" stroke-width="1.5" />
-  <path d="M5 11 V5 H11" stroke="#7AA2FF" stroke-width="1.5" stroke-linecap="square" />
-  <path d="M21 5 H27 V11" stroke="#7AA2FF" stroke-width="1.5" stroke-linecap="square" />
-  <path d="M27 21 V27 H21" stroke="#7AA2FF" stroke-width="1.5" stroke-linecap="square" />
-  <path d="M11 27 H5 V21" stroke="#7AA2FF" stroke-width="1.5" stroke-linecap="square" />
+  <rect x="1" y="1" width="30" height="30" rx="7" fill="#020D08" stroke="#0A3B22" stroke-width="1.5" />
+  <path d="M5 11 V5 H11" stroke="#00FF41" stroke-width="1.5" stroke-linecap="square" />
+  <path d="M21 5 H27 V11" stroke="#00FF41" stroke-width="1.5" stroke-linecap="square" />
+  <path d="M27 21 V27 H21" stroke="#00FF41" stroke-width="1.5" stroke-linecap="square" />
+  <path d="M11 27 H5 V21" stroke="#00FF41" stroke-width="1.5" stroke-linecap="square" />
   <path d="M9.5 23.5 L16 8.5 L22.5 23.5" stroke="url(#a)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
   <path d="M12.75 18.75 H19.25" stroke="url(#a)" stroke-width="1.5" stroke-linecap="round" />
 </svg>
