@@ -54,7 +54,7 @@ export default function ProjectCard({
                 src={image.src}
                 alt={image.alt}
                 loading="lazy"
-                className="w-40 h-28 object-cover object-top rounded border border-line shrink-0 snap-start"
+                className="w-64 h-40 object-cover object-top rounded border border-line shrink-0 snap-start"
               />
             ))}
           </div>
