@@ -35,7 +35,7 @@ export default function CursorGlow() {
         visible ? "opacity-100" : "opacity-0"
       }`}
       style={{
-        background: "radial-gradient(circle, rgba(0,255,65,0.08), transparent 60%)",
+        background: "radial-gradient(circle, rgba(122,162,255,0.09), transparent 60%)",
         willChange: "transform",
       }}
     />

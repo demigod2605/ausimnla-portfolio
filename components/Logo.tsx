@@ -27,8 +27,8 @@ export default function Logo({
           y2="24"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0%" stopColor="#00FF41" />
-          <stop offset="100%" stopColor="#66FF99" />
+          <stop offset="0%" stopColor="#7AA2FF" />
+          <stop offset="100%" stopColor="#BB86FC" />
         </linearGradient>
       </defs>
       <rect
@@ -37,31 +37,31 @@ export default function Logo({
         width="30"
         height="30"
         rx="7"
-        fill="#020D08"
-        stroke="#0A3B22"
+        fill="#0A0D1E"
+        stroke="#232B4D"
         strokeWidth="1.5"
       />
       <path
         d="M5 11 V5 H11"
-        stroke="#00FF41"
+        stroke="#7AA2FF"
         strokeWidth="1.5"
         strokeLinecap="square"
       />
       <path
         d="M21 5 H27 V11"
-        stroke="#00FF41"
+        stroke="#7AA2FF"
         strokeWidth="1.5"
         strokeLinecap="square"
       />
       <path
         d="M27 21 V27 H21"
-        stroke="#00FF41"
+        stroke="#7AA2FF"
         strokeWidth="1.5"
         strokeLinecap="square"
       />
       <path
         d="M11 27 H5 V21"
-        stroke="#00FF41"
+        stroke="#7AA2FF"
         strokeWidth="1.5"
         strokeLinecap="square"
       />

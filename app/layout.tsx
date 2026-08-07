@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CursorGlow from "@/components/CursorGlow";
-import MatrixRain from "@/components/MatrixRain";
+import StarField from "@/components/StarField";
 import BackToTop from "@/components/BackToTop";
 
 const spaceGrotesk = Space_Grotesk({
@@ -57,7 +57,7 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${jakarta.variable} ${jetbrainsMono.variable}`}
     >
       <body className="bg-void text-text font-sans antialiased min-h-screen flex flex-col overflow-x-hidden">
-        <MatrixRain />
+        <StarField />
         <CursorGlow />
         <Navbar />
         <main className="flex-1">{children}</main>
