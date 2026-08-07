@@ -1,4 +1,7 @@
 import Panel from "./Panel";
+import Reveal from "./Reveal";
+import Tilt from "./Tilt";
+import { socials } from "@/lib/socials";
 
 export default function Contact() {
   return (
@@ -10,25 +13,53 @@ export default function Contact() {
         Let's build something
       </h2>
 
-      <Panel accent="cyan" label="transmit.sh" className="p-6 sm:p-8 max-w-xl">
-        <p className="text-sm leading-relaxed text-muted mb-6">
-          I'm always open to interesting projects, freelance work, or just a
-          good conversation about building things on the web. Drop me a line
-          and I'll get back to you soon.
-        </p>
+      <Reveal>
+        <Tilt>
+          <Panel accent="cyan" label="transmit.sh" className="p-6 sm:p-8 max-w-xl">
+            <p className="text-sm leading-relaxed text-muted mb-6">
+              I'm always open to interesting projects, freelance work, or just a
+              good conversation about building things on the web. Drop me a line
+              and I'll get back to you soon.
+            </p>
 
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-          <a
-            href="mailto:shaneaustinmmanila@gmail.com"
-            className="px-5 py-2.5 rounded border border-cyan/50 text-cyan font-mono text-sm hover:bg-cyan hover:text-void hover:shadow-glow transition-all"
-          >
-            [ send email ]
-          </a>
-          <span className="font-mono text-xs text-muted">
-            shaneaustinmmanila@gmail.com
-          </span>
-        </div>
-      </Panel>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=shaneaustinmmanila@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-2.5 rounded border border-cyan/50 text-cyan font-mono text-sm hover:bg-cyan hover:text-void hover:shadow-glow transition-all"
+              >
+                [ send email ]
+              </a>
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=shaneaustinmmanila@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xs text-muted hover:text-cyan transition-colors"
+              >
+                shaneaustinmmanila@gmail.com
+              </a>
+            </div>
+
+            <div className="flex flex-wrap gap-3 mt-6">
+              {socials.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.name}
+                  title={social.name}
+                  className="flex items-center gap-2 px-3 py-2 rounded-md border border-line text-muted hover:text-cyan hover:border-cyan/50 hover:shadow-glow-sm transition-all"
+                >
+                  <social.Icon aria-hidden className="text-lg" />
+                  <span className="font-mono text-xs">{social.name}</span>
+                </a>
+              ))}
+            </div>
+          </Panel>
+        </Tilt>
+      </Reveal>
     </section>
   );
 }

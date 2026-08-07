@@ -1,4 +1,4 @@
-import Panel from "./Panel";
+import Reveal from "./Reveal";
 
 type EducationEntry = {
   period: string;
@@ -48,6 +48,7 @@ export default function Education() {
 
       <div className="grid sm:grid-cols-[1.1fr_1fr] gap-10 items-start">
         <div>
+        <Reveal>
           <div className="relative pl-8">
             <div className="absolute left-[7px] top-2 bottom-2 w-px bg-line" />
             <ul className="space-y-10">
@@ -70,13 +71,7 @@ export default function Education() {
               ))}
             </ul>
           </div>
-
-          <Panel accent="muted" className="mt-8 p-4 max-w-2xl">
-            <p className="font-mono text-xs text-muted">
-              // placeholder data — send me your real school names, years,
-              and expected graduation date and I'll swap these in.
-            </p>
-          </Panel>
+        </Reveal>
         </div>
         </div>
     </section>

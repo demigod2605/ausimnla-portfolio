@@ -40,8 +40,7 @@ body {
   outline-offset: 2px;
 }
 
-/* corner-bracket decoration used by Panel.tsx */
-.corner-brackets::before,
+/* corner-bracket decoration used by Panel.tsx */.corner-brackets::before,
 .corner-brackets::after,
 .corner-brackets > .bracket-tl,
 .corner-brackets > .bracket-br {
@@ -70,5 +69,45 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* scroll-reveal used by components/Reveal.tsx */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* glowing sweep across skill bars */
+.bar-fill {
+  position: relative;
+  overflow: hidden;
+}
+.bar-fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(230, 238, 242, 0.4), transparent);
+  animation: bar-sweep 2.2s ease-in-out infinite;
+}
+@keyframes bar-sweep {
+  0% { transform: translateX(-150%); }
+  100% { transform: translateX(350%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }

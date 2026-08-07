@@ -2,12 +2,14 @@ const marqueeItems = [
   "REACT", "NEXT.JS", "TAILWIND", "TYPESCRIPT", "UI/UX", "ACCESSIBILITY",
 ];
 
+import Reveal from "./Reveal";
+
 export default function Hero() {
   const loop = [...marqueeItems, ...marqueeItems];
 
   return (
     <section id="top" className="relative">
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 pt-16 sm:pt-24 pb-20 relative">
+      <Reveal className="max-w-6xl mx-auto px-5 sm:px-8 pt-16 sm:pt-24 pb-20 relative">
         <div
           aria-hidden
           className="absolute -top-10 right-0 sm:right-10 w-72 h-72 bg-cyan/10 rounded-full blur-3xl -z-10"
@@ -58,7 +60,7 @@ export default function Hero() {
             [ get in touch ]
           </a>
         </div>
-      </div>
+      </Reveal>
 
       <div className="border-y border-line bg-panel overflow-hidden">
         <div className="flex animate-marquee py-3 whitespace-nowrap">

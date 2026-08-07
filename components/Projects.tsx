@@ -1,5 +1,7 @@
 import { projects } from "@/lib/projects";
 import Panel from "./Panel";
+import Reveal from "./Reveal";
+import Tilt from "./Tilt";
 
 const accents: Array<"cyan" | "amber" | "violet"> = ["cyan", "amber", "violet"];
 
@@ -25,33 +27,25 @@ export default function Projects() {
           {projects.map((project, i) => {
             const accent = accents[i % accents.length];
             const accentText = accent === "cyan" ? "text-cyan" : accent === "amber" ? "text-amber" : "text-violet";
-            return (
+            const href = project.repo_url || project.demo_url;
+            const card = (
               <Panel
-                key={project.id}
                 as="article"
                 accent={accent}
                 label={`project_${String(i + 1).padStart(2, "0")}`}
-                className="p-6 flex flex-col gap-4"
+                className="p-6 flex flex-col gap-4 h-full"
               >
                 <h3 className="font-display font-bold text-xl text-text">{project.title}</h3>
                 {project.images && project.images.length > 0 && (
                   <div className="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1 snap-x">
                     {project.images.map((image) => (
-                      <a
+                      <img
                         key={image.src}
-                        href={image.src}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="shrink-0 snap-start"
-                        title={image.alt}
-                      >
-                        <img
-                          src={image.src}
-                          alt={image.alt}
-                          loading="lazy"
-                          className="w-40 h-28 object-cover object-top rounded border border-line hover:border-cyan/60 transition-colors"
-                        />
-                      </a>
+                        src={image.src}
+                        alt={image.alt}
+                        loading="lazy"
+                        className="w-40 h-28 object-cover object-top rounded border border-line shrink-0 snap-start"
+                      />
                     ))}
                   </div>
                 )}
@@ -66,29 +60,33 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-                <div className="flex gap-4 font-mono text-xs pt-1">
-                  {project.repo_url && (
-                    <a
-                      href={project.repo_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`${accentText} hover:opacity-70 transition-opacity`}
-                    >
-                      → repo
-                    </a>
-                  )}
-                  {project.demo_url && (
-                    <a
-                      href={project.demo_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`${accentText} hover:opacity-70 transition-opacity`}
-                    >
-                      → live demo
-                    </a>
-                  )}
-                </div>
+                {href && (
+                  <div className="flex items-center justify-between font-mono text-xs">
+                    <span className="text-muted/70">// view on github</span>
+                    <span className={accentText}>→ open</span>
+                  </div>
+                )}
               </Panel>
+            );
+
+            return (
+              <Reveal key={project.id} delay={(i % 2) * 120} className="h-full">
+                <Tilt className="h-full">
+                  {href ? (
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${project.title} — open project`}
+                      className="block h-full"
+                    >
+                      {card}
+                    </a>
+                  ) : (
+                    card
+                  )}
+                </Tilt>
+              </Reveal>
             );
           })}
         </div>

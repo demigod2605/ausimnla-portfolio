@@ -6,15 +6,18 @@ const links = [
   { href: "#contact", label: "CONTACT", n: "05" },
 ];
 
+import Logo from "./Logo";
+
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-void/90 backdrop-blur border-b border-line">
       <nav className="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 font-mono font-bold text-text">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full rounded-full bg-cyan opacity-60 animate-ping" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan" />
-          </span>
+        <a href="#top" className="group flex items-center gap-2 font-mono font-bold text-text">
+          <Logo
+            size={28}
+            gradientId="logo-grad-nav"
+            className="transition-all duration-200 group-hover:drop-shadow-[0_0_6px_rgba(94,234,212,0.5)]"
+          />
           ausimnla
         </a>
         <ul className="hidden sm:flex items-center gap-1 font-mono text-xs">
