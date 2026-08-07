@@ -13,4 +13,5 @@ export type Project = {
   sort_order: number;
   created_at: string;
   images?: ProjectImage[];
+  highlights?: string[];
 };

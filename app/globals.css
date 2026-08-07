@@ -106,6 +106,21 @@ body {
   100% { transform: translateX(350%); }
 }
 
+/* expanding project card details */
+.expand-in {
+  animation: expand-in 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes expand-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
