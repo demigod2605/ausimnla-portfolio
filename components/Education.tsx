@@ -78,16 +78,7 @@ export default function Education() {
             </p>
           </Panel>
         </div>
-
-        {/* photo stack — placeholders until you upload real graduation / school photos */}
-        <div className="relative h-72 sm:h-80 hidden sm:block">
-          <div className="absolute right-16 top-6 w-40 h-52 rounded-xl border border-line bg-panel rotate-[-8deg] shadow-glow-sm" />
-          <div className="absolute right-6 top-10 w-40 h-52 rounded-xl border border-violet/40 bg-panel2 rotate-[4deg] shadow-glow-sm" />
-          <div className="absolute right-0 top-2 w-40 h-52 rounded-xl border border-cyan/50 bg-void flex items-center justify-center shadow-glow">
-            <span className="font-display font-bold text-6xl text-cyan/60">?</span>
-          </div>
         </div>
-      </div>
     </section>
   );
 }
