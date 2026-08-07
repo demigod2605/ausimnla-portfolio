@@ -78,6 +78,18 @@ export default function Hero() {
             [ get in touch ]
           </a>
         </div>
+
+        <div className="mt-8 max-w-xl rounded border border-line bg-panel/80 p-4">
+          <p className="font-mono text-[11px] uppercase tracking-widest text-cyan mb-3">
+            // github contributions
+          </p>
+          <img
+            src="https://ghchart.rshah.org/00FF41/ausimnla"
+            alt="GitHub contribution graph for ausimnla"
+            loading="lazy"
+            className="w-full"
+          />
+        </div>
       </Reveal>
 
       <div className="border-y border-line bg-panel overflow-hidden">
