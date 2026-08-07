@@ -8,7 +8,7 @@ export type Social = {
 };
 
 export const socials: Social[] = [
-  { name: "GitHub", url: "https://github.com/ausimnla", Icon: SiGithub },
+  { name: "GitHub", url: "https://github.com/demigod2605", Icon: SiGithub },
   { name: "Facebook", url: "https://www.facebook.com/ausi.mnla", Icon: SiFacebook },
   { name: "Instagram", url: "https://www.instagram.com/ausi.kidd/", Icon: SiInstagram },
 ];

@@ -84,8 +84,8 @@ export default function Hero() {
             // github contributions
           </p>
           <img
-            src="https://ghchart.rshah.org/00FF41/ausimnla"
-            alt="GitHub contribution graph for ausimnla"
+            src="https://ghchart.rshah.org/00FF41/demigod2605"
+            alt="GitHub contribution graph for demigod2605"
             loading="lazy"
             className="w-full"
           />
