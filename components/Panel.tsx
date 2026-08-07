@@ -22,7 +22,7 @@ export default function Panel({
 }) {
   return (
     <As
-      className={`corner-brackets relative rounded-md border bg-panel/80 backdrop-blur-sm scale-100 hover:scale-105 transition-transform transition-shadow duration-200 ease-out origin-center ${accentClasses[accent]} ${className}`}
+      className={`corner-brackets relative rounded-md border bg-panel/80 backdrop-blur-sm scale-100 hover:scale-105 transition-transform duration-200 ease-out origin-center ${accentClasses[accent]} ${className}`}
     >
       <span className="bracket-tl" />
       <span className="bracket-br" />

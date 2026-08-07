@@ -19,7 +19,7 @@ export default function About() {
         <Reveal>
           <div>
             <p className="text-muted leading-relaxed mb-4">
-              Hi! I'm ausimnla, a frontend / UI developer who cares about the
+              Hi! I'm Austin Manila, a frontend / UI developer who cares about the
               details — smooth interactions, clean architecture, and code
               that's a joy to maintain. I work across the stack with
               TypeScript and React.

@@ -26,7 +26,7 @@ export default function Hero() {
 
         <h1 className="font-display font-bold text-5xl sm:text-7xl leading-[0.95] tracking-tight max-w-3xl text-text">
           Hey, I'm{" "}
-          <span className="text-cyan">ausimnla</span>
+          <span className="text-cyan">Austin Manila</span>
           <br />
           I build precise,
           <br />
