@@ -25,4 +25,55 @@ export const projects: Project[] = [
       { src: "/projects/dashboard-portal.png", alt: "SPC Training Center admin dashboard" },
     ],
   },
+  {
+    id: "taskflow",
+    title: "TaskFlow",
+    description:
+      "A kanban-style task manager with drag-and-drop boards, team workspaces, and real-time updates. Built for fast, distraction-free task tracking across personal and team projects.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma"],
+    repo_url: null,
+    demo_url: null,
+    sort_order: 2,
+    created_at: "2026-06-15T00:00:00Z",
+    highlights: [
+      "Drag-and-drop kanban boards for task organization",
+      "Team workspaces with role-based access",
+      "Real-time updates across connected devices",
+      "Keyboard-friendly, accessible interface",
+    ],
+  },
+  {
+    id: "shopwave",
+    title: "ShopWave",
+    description:
+      "A clean e-commerce storefront with product browsing, a full shopping cart, and secure checkout. Focused on performance and a smooth shopping experience end to end.",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Stripe"],
+    repo_url: null,
+    demo_url: null,
+    sort_order: 3,
+    created_at: "2026-03-10T00:00:00Z",
+    highlights: [
+      "Product catalog with filtering and search",
+      "Shopping cart with persistent state",
+      "Secure Stripe checkout integration",
+      "Responsive layout optimized for mobile",
+    ],
+  },
+  {
+    id: "pixelnotes",
+    title: "PixelNotes",
+    description:
+      "A lightweight markdown notes app with instant search, syntax highlighting, and automatic saving. Keeps ideas organized without getting in the way.",
+    tags: ["Next.js", "TypeScript", "Postgres", "MDX"],
+    repo_url: null,
+    demo_url: null,
+    sort_order: 4,
+    created_at: "2025-11-20T00:00:00Z",
+    highlights: [
+      "Markdown editor with live preview",
+      "Instant full-text search across notes",
+      "Autosave with offline support",
+      "Nested tags and folder organization",
+    ],
+  },
 ];
