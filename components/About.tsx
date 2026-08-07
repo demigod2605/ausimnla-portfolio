@@ -1,6 +1,7 @@
 import Panel from "./Panel";
 import Reveal from "./Reveal";
 import Tilt from "./Tilt";
+import { projects } from "@/lib/projects";
 
 export default function About() {
   return (
@@ -36,14 +37,24 @@ export default function About() {
         </Reveal>
 
         <Reveal delay={150}>
-          <Tilt>
-            <Panel accent="violet" className="p-6 flex items-center gap-4">
-              <span className="font-display font-bold text-4xl bg-gradient-to-r from-cyan to-violet bg-clip-text text-transparent">
-                3+
-              </span>
-              <span className="text-sm text-muted">Years coding</span>
-            </Panel>
-          </Tilt>
+          <div className="flex flex-col gap-4">
+            <Tilt>
+              <Panel accent="violet" className="p-6 flex items-center gap-4">
+                <span className="font-display font-bold text-4xl bg-gradient-to-r from-cyan to-violet bg-clip-text text-transparent">
+                  3+
+                </span>
+                <span className="text-sm text-muted">Years coding</span>
+              </Panel>
+            </Tilt>
+            <Tilt>
+              <Panel accent="cyan" className="p-6 flex items-center gap-4">
+                <span className="font-display font-bold text-4xl bg-gradient-to-r from-cyan to-violet bg-clip-text text-transparent">
+                  {projects.length}
+                </span>
+                <span className="text-sm text-muted">Projects built</span>
+              </Panel>
+            </Tilt>
+          </div>
         </Reveal>
       </div>
     </section>
