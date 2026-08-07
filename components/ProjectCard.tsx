@@ -46,55 +46,90 @@ export default function ProjectCard({
       >
         <h3 className="font-display font-bold text-xl text-text">{project.title}</h3>
 
-        {project.images && project.images.length > 0 && (
-          <div className="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1 snap-x">
-            {project.images.map((image) => (
-              <img
-                key={image.src}
-                src={image.src}
-                alt={image.alt}
-                loading="lazy"
-                className="w-64 h-40 object-cover object-top rounded border border-line shrink-0 snap-start"
-              />
-            ))}
-          </div>
-        )}
-
-        <p className={`text-sm leading-relaxed text-muted ${open ? "" : "line-clamp-2"}`}>
-          {project.description}
-        </p>
-
-        <div className="flex flex-wrap gap-2">
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className={`text-xs font-mono px-2 py-1 rounded border border-line ${accentText}`}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        {open && (
-          <div className="expand-in flex flex-col gap-5 border-t border-line pt-4">
-            {(project.highlights && project.highlights.length > 0) && (
-              <div>
-                <p className="font-mono text-xs uppercase tracking-widest text-muted mb-3">
-                  // what it does
-                </p>
-                <ul className="space-y-2">
-                  {project.highlights.map((highlight) => (
-                    <li
-                      key={highlight}
-                      className="flex gap-2 text-sm text-muted leading-relaxed"
-                    >
-                      <span className={accentText}>▸</span>
-                      <span>{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
+        {!open && (
+          <>
+            {project.images && project.images.length > 0 && (
+              <div className="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1 snap-x">
+                {project.images.map((image) => (
+                  <img
+                    key={image.src}
+                    src={image.src}
+                    alt={image.alt}
+                    loading="lazy"
+                    className="w-64 h-40 object-cover object-top rounded border border-line shrink-0 snap-start"
+                  />
+                ))}
               </div>
             )}
+
+            <p className="text-sm leading-relaxed text-muted line-clamp-2">
+              {project.description}
+            </p>
+
+            <div className="flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className={`text-xs font-mono px-2 py-1 rounded border border-line ${accentText}`}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </>
+        )}
+
+        {open && (
+          <div className="expand-in grid sm:grid-cols-2 gap-6">
+            {project.images && project.images.length > 0 && (
+              <div className="flex flex-col gap-4">
+                {project.images.map((image) => (
+                  <img
+                    key={image.src}
+                    src={image.src}
+                    alt={image.alt}
+                    loading="lazy"
+                    className="w-full object-cover object-top rounded border border-line"
+                  />
+                ))}
+              </div>
+            )}
+
+            <div className="flex flex-col gap-4">
+              <p className="text-sm leading-relaxed text-muted">
+                {project.description}
+              </p>
+
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className={`text-xs font-mono px-2 py-1 rounded border border-line ${accentText}`}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {project.highlights && project.highlights.length > 0 && (
+                <div>
+                  <p className="font-mono text-xs uppercase tracking-widest text-muted mb-3">
+                    // what it does
+                  </p>
+                  <ul className="space-y-2">
+                    {project.highlights.map((highlight) => (
+                      <li
+                        key={highlight}
+                        className="flex gap-2 text-sm text-muted leading-relaxed"
+                      >
+                        <span className={accentText}>▸</span>
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
           </div>
         )}
 
