@@ -1,7 +1,7 @@
 import Panel from "./Panel";
 import Reveal from "./Reveal";
 import Tilt from "./Tilt";
-import ContactForm from "./ContactForm";
+import EmailLinks from "./EmailLinks";
 import { socials } from "@/lib/socials";
 
 export default function Contact() {
@@ -23,7 +23,9 @@ export default function Contact() {
               and I'll get back to you soon.
             </p>
 
-            <ContactForm />
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <EmailLinks />
+            </div>
 
             <div className="flex flex-wrap gap-3 mt-6">
               {socials.map((social) => (
