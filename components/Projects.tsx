@@ -29,7 +29,11 @@ export default function Projects() {
             const accent = accents[i % accents.length];
             const accentText = accent === "cyan" ? "text-cyan" : accent === "amber" ? "text-amber" : "text-violet";
             return (
-              <Reveal key={project.id} delay={(i % 2) * 120}>
+              <Reveal
+                key={project.id}
+                delay={(i % 2) * 120}
+                className="has-[[data-open=true]]:sm:col-span-2"
+              >
                 <Tilt>
                   <ProjectCard
                     project={project}

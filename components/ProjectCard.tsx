@@ -80,6 +80,7 @@ export default function ProjectCard({
     <div
       role="button"
       tabIndex={0}
+      data-open={open ? "true" : "false"}
       aria-expanded={open}
       aria-label={
         open ? `Collapse ${project.title} details` : `Expand ${project.title} details`
