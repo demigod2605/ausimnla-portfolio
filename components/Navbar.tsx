@@ -1,0 +1,40 @@
+const links = [
+  { href: "#about", label: "ABOUT", n: "01" },
+  { href: "#education", label: "EDUCATION", n: "02" },
+  { href: "#skills", label: "SKILLS", n: "03" },
+  { href: "#projects", label: "PROJECTS", n: "04" },
+  { href: "#contact", label: "CONTACT", n: "05" },
+];
+
+export default function Navbar() {
+  return (
+    <header className="sticky top-0 z-50 bg-void/90 backdrop-blur border-b border-line">
+      <nav className="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+        <a href="#top" className="flex items-center gap-2 font-mono font-bold text-text">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full rounded-full bg-cyan opacity-60 animate-ping" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan" />
+          </span>
+          ausimnla
+        </a>
+        <ul className="hidden sm:flex items-center gap-1 font-mono text-xs">
+          {links.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className="group px-3 py-2 flex items-center gap-1.5 text-muted hover:text-cyan transition-colors"
+              >
+                <span className="text-cyan/50 group-hover:text-cyan">{link.n}</span>
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <span className="hidden sm:inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-muted border border-line rounded px-2 py-1">
+          <span className="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse2" />
+          online
+        </span>
+      </nav>
+    </header>
+  );
+}
