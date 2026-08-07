@@ -18,7 +18,7 @@ export default function About() {
             Hi! I'm ausimnla, a frontend / UI developer who cares about the
             details — smooth interactions, clean architecture, and code
             that's a joy to maintain. I work across the stack with
-            TypeScript, React, and Supabase.
+            TypeScript and React.
           </p>
           <p className="text-muted leading-relaxed mb-6">
             Right now I'm focused on building fast, accessible interfaces

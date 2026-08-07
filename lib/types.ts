@@ -1,3 +1,8 @@
+export type ProjectImage = {
+  src: string;
+  alt: string;
+};
+
 export type Project = {
   id: string;
   title: string;
@@ -7,10 +12,5 @@ export type Project = {
   demo_url: string | null;
   sort_order: number;
   created_at: string;
-};
-
-export type ContactPayload = {
-  name: string;
-  email: string;
-  message: string;
+  images?: ProjectImage[];
 };

@@ -1,5 +1,5 @@
 const marqueeItems = [
-  "REACT", "NEXT.JS", "TAILWIND", "SUPABASE", "TYPESCRIPT", "UI/UX",
+  "REACT", "NEXT.JS", "TAILWIND", "TYPESCRIPT", "UI/UX", "ACCESSIBILITY",
 ];
 
 export default function Hero() {

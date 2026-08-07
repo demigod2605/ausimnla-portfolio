@@ -1,23 +1,9 @@
-import { supabase, isSupabaseConfigured } from "@/lib/supabaseClient";
-import type { Project } from "@/lib/types";
+import { projects } from "@/lib/projects";
 import Panel from "./Panel";
-
-async function getProjects(): Promise<Project[]> {
-  if (!isSupabaseConfigured) return [];
-
-  const { data, error } = await supabase
-    .from("projects")
-    .select("*")
-    .order("sort_order", { ascending: true });
-
-  if (error || !data) return [];
-  return data as Project[];
-}
 
 const accents: Array<"cyan" | "amber" | "violet"> = ["cyan", "amber", "violet"];
 
-export default async function Projects() {
-  const projects = await getProjects();
+export default function Projects() {
 
   return (
     <section id="projects" className="max-w-6xl mx-auto px-5 sm:px-8 py-20">
@@ -48,6 +34,27 @@ export default async function Projects() {
                 className="p-6 flex flex-col gap-4"
               >
                 <h3 className="font-display font-bold text-xl text-text">{project.title}</h3>
+                {project.images && project.images.length > 0 && (
+                  <div className="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1 snap-x">
+                    {project.images.map((image) => (
+                      <a
+                        key={image.src}
+                        href={image.src}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="shrink-0 snap-start"
+                        title={image.alt}
+                      >
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          loading="lazy"
+                          className="w-40 h-28 object-cover object-top rounded border border-line hover:border-cyan/60 transition-colors"
+                        />
+                      </a>
+                    ))}
+                  </div>
+                )}
                 <p className="text-sm leading-relaxed text-muted flex-1">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
