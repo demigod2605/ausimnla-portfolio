@@ -77,7 +77,7 @@ export default function ProjectCard({
 
         {open && (
           <div className="expand-in flex flex-col gap-5 border-t border-line pt-4">
-            {project.highlights && project.highlights.length > 0 && (
+            {(project.highlights && project.highlights.length > 0) && (
               <div>
                 <p className="font-mono text-xs uppercase tracking-widest text-muted mb-3">
                   // what it does
@@ -93,33 +93,6 @@ export default function ProjectCard({
                     </li>
                   ))}
                 </ul>
-              </div>
-            )}
-
-            {(project.repo_url || project.demo_url) && (
-              <div className="flex flex-wrap gap-4 font-mono text-xs">
-                {project.repo_url && (
-                  <a
-                    href={project.repo_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className={`${accentText} hover:opacity-70 transition-opacity`}
-                  >
-                    → view repo
-                  </a>
-                )}
-                {project.demo_url && (
-                  <a
-                    href={project.demo_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className={`${accentText} hover:opacity-70 transition-opacity`}
-                  >
-                    → live demo
-                  </a>
-                )}
               </div>
             )}
           </div>

@@ -7,7 +7,7 @@ export const projects: Project[] = [
     description:
       "A full-stack workforce training platform with a public site (home, about, courses, contact) and an admin dashboard featuring course management, enrollment tracking, and real-time analytics — completion rates, certification status, and department performance charts.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
-    repo_url: "https://github.com/ausimnla",
+    repo_url: null,
     demo_url: null,
     sort_order: 1,
     created_at: "2026-08-07T00:00:00Z",
