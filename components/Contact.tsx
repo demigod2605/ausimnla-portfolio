@@ -1,6 +1,7 @@
 import Panel from "./Panel";
 import Reveal from "./Reveal";
 import Tilt from "./Tilt";
+import EmailLinks from "./EmailLinks";
 import { socials } from "@/lib/socials";
 
 export default function Contact() {
@@ -23,22 +24,7 @@ export default function Contact() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=shaneaustinmmanila@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-5 py-2.5 rounded border border-cyan/50 text-cyan font-mono text-sm hover:bg-cyan hover:text-void hover:shadow-glow transition-all"
-              >
-                [ send email ]
-              </a>
-              <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=shaneaustinmmanila@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono text-xs text-muted hover:text-cyan transition-colors"
-              >
-                shaneaustinmmanila@gmail.com
-              </a>
+              <EmailLinks />
             </div>
 
             <div className="flex flex-wrap gap-3 mt-6">
