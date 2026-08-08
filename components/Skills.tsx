@@ -17,6 +17,7 @@ import { FaHtml5, FaCss3 } from "react-icons/fa";
 import { MdApi } from "react-icons/md";
 import type { IconType } from "react-icons";
 import Reveal from "./Reveal";
+import Panel from "./Panel";
 
 type Skill = { name: string; proficiency: number; Icon?: IconType };
 
@@ -87,13 +88,14 @@ export default function Skills() {
         What I work with
       </h2>
 
-      <div className="grid sm:grid-cols-2 gap-10">
+      <div className="grid sm:grid-cols-2 gap-6">
         {groups.map((group, i) => (
           <Reveal key={group.key} delay={(i % 2) * 120}>
-            <div>
-              <p className="font-mono text-xs uppercase tracking-widest text-muted mb-4">
-                {group.key}
-              </p>
+            <Panel
+              accent={(["cyan", "violet", "amber", "muted"] as const)[i % 4]}
+              label={group.key}
+              className="p-6"
+            >
               <div className="flex flex-col gap-4">
                 {group.items.map((skill) => (
                   <div key={skill.name}>
@@ -129,7 +131,7 @@ export default function Skills() {
                   </div>
                 ))}
               </div>
-            </div>
+            </Panel>
           </Reveal>
         ))}
       </div>
