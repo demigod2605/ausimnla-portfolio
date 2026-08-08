@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import CursorGlow from "@/components/CursorGlow";
 import MatrixRain from "@/components/MatrixRain";
 import BackToTop from "@/components/BackToTop";
+import Loader from "@/components/Loader";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -63,6 +64,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <BackToTop />
+        <Loader />
       </body>
     </html>
   );
