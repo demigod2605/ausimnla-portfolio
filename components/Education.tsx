@@ -1,4 +1,6 @@
 import Reveal from "./Reveal";
+import Panel from "./Panel";
+import Tilt from "./Tilt";
 
 type EducationEntry = {
   period: string;
@@ -46,34 +48,41 @@ export default function Education() {
         Where I studied
       </h2>
 
-      <div className="grid sm:grid-cols-[1.1fr_1fr] gap-10 items-start">
-        <div>
-        <Reveal>
-          <div className="relative pl-8">
-            <div className="absolute left-[7px] top-2 bottom-2 w-px bg-line" />
-            <ul className="space-y-10">
-              {timeline.map((entry) => (
-                <li key={entry.school} className="relative">
-                  <span
-                    className={`absolute -left-8 top-1 w-3.5 h-3.5 rounded-full border-2 ${
-                      entry.status === "current"
-                        ? "bg-cyan border-cyan shadow-glow-sm"
-                        : "bg-void border-violet"
-                    }`}
-                  />
-                  <p className="font-mono text-xs text-cyan mb-1">{entry.period}</p>
-                  <h3 className="font-display font-bold text-lg text-text">{entry.school}</h3>
+      <div className="grid sm:grid-cols-2 gap-6">
+        {timeline.map((entry, i) => {
+          const accent = entry.status === "current" ? "cyan" : "violet";
+          return (
+            <Reveal key={entry.school} delay={(i % 2) * 120}>
+              <Tilt>
+                <Panel
+                  accent={accent}
+                  label={`edu_${String(i + 1).padStart(2, "0")}`}
+                  className="p-6"
+                >
+                  <div className="flex items-center justify-between mb-1">
+                    <p className="font-mono text-xs text-cyan">{entry.period}</p>
+                    {entry.status === "current" && (
+                      <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-cyan">
+                        <span className="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse2" />
+                        current
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="font-display font-bold text-lg text-text">
+                    {entry.school}
+                  </h3>
                   <p className="text-sm text-muted">{entry.level}</p>
                   {entry.note && (
-                    <p className="font-mono text-xs text-muted/70 mt-1">{entry.note}</p>
+                    <p className="font-mono text-xs text-muted/70 mt-1">
+                      {entry.note}
+                    </p>
                   )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Reveal>
-        </div>
-        </div>
+                </Panel>
+              </Tilt>
+            </Reveal>
+          );
+        })}
+      </div>
     </section>
   );
 }
