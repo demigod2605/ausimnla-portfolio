@@ -21,74 +21,96 @@ export default function Hero() {
           className="absolute top-24 left-0 sm:-left-10 w-56 h-56 bg-violet/10 rounded-full blur-3xl -z-10"
         />
 
-        <div className="mb-6 flex flex-wrap items-center gap-x-6 gap-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded border border-line font-mono text-[11px] uppercase tracking-widest text-cyan">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse2" />
-            status: available for work
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10">
+          <div className="max-w-3xl">
+            <div className="mb-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded border border-line font-mono text-[11px] uppercase tracking-widest text-cyan">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse2" />
+                status: available for work
+              </div>
+              <RealtimeClock />
+            </div>
+
+            <h1 className="font-display font-bold text-5xl sm:text-7xl leading-[0.95] tracking-tight text-text">
+              Hey, I'm{" "}
+              <span className="text-cyan">Austin Manila</span>
+              <br />
+              I build precise,
+              <br />
+              fast, accessible{" "}
+              <span className="relative inline-block">
+                interfaces
+                <span
+                  aria-hidden
+                  className="absolute left-0 -bottom-2 w-full h-[3px] bg-cyan/60"
+                />
+              </span>
+              .
+            </h1>
+
+            <p className="mt-8 max-w-xl text-lg text-muted leading-relaxed font-sans">
+              Frontend / UI developer focused on clean systems, careful detail,
+              and interfaces that hold up under scrutiny.
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-3 font-mono text-sm">
+              {socials.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.name}
+                  className="px-3 py-2.5 rounded border border-line text-muted hover:text-cyan hover:border-cyan/50 transition-all"
+                >
+                  <social.Icon className="w-4 h-4" aria-hidden />
+                </a>
+              ))}
+              <span className="hidden sm:inline-block w-px h-6 bg-line mx-1" aria-hidden />
+              <a
+                href="#projects"
+                className="px-5 py-2.5 rounded border border-cyan/50 text-cyan hover:bg-cyan hover:text-void hover:shadow-glow transition-all"
+              >
+                [ view projects ]
+              </a>
+              <a
+                href="#contact"
+                className="px-5 py-2.5 rounded border border-line text-text hover:border-cyan/50 hover:text-cyan transition-all"
+              >
+                [ get in touch ]
+              </a>
+            </div>
+
+            <div className="mt-8 max-w-xl rounded border border-line bg-panel/80 p-4">
+              <p className="font-mono text-[11px] uppercase tracking-widest text-cyan mb-3">
+                // github contributions
+              </p>
+              <img
+                src="https://ghchart.rshah.org/00FF41/demigod2605"
+                alt="GitHub contribution graph for demigod2605"
+                loading="lazy"
+                className="w-full"
+              />
+            </div>
           </div>
-          <RealtimeClock />
-        </div>
 
-        <h1 className="font-display font-bold text-5xl sm:text-7xl leading-[0.95] tracking-tight max-w-3xl text-text">
-          Hey, I'm{" "}
-          <span className="text-cyan">Austin Manila</span>
-          <br />
-          I build precise,
-          <br />
-          fast, accessible{" "}
-          <span className="relative inline-block">
-            interfaces
-            <span
-              aria-hidden
-              className="absolute left-0 -bottom-2 w-full h-[3px] bg-cyan/60"
-            />
-          </span>
-          .
-        </h1>
-
-        <p className="mt-8 max-w-xl text-lg text-muted leading-relaxed font-sans">
-          Frontend / UI developer focused on clean systems, careful detail,
-          and interfaces that hold up under scrutiny.
-        </p>
-
-        <div className="mt-8 flex flex-wrap items-center gap-3 font-mono text-sm">
-          {socials.map((social) => (
-            <a
-              key={social.name}
-              href={social.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={social.name}
-              className="px-3 py-2.5 rounded border border-line text-muted hover:text-cyan hover:border-cyan/50 transition-all"
-            >
-              <social.Icon className="w-4 h-4" aria-hidden />
-            </a>
-          ))}
-          <span className="hidden sm:inline-block w-px h-6 bg-line mx-1" aria-hidden />
-          <a
-            href="#projects"
-            className="px-5 py-2.5 rounded border border-cyan/50 text-cyan hover:bg-cyan hover:text-void hover:shadow-glow transition-all"
-          >
-            [ view projects ]
-          </a>
-          <a
-            href="#contact"
-            className="px-5 py-2.5 rounded border border-line text-text hover:border-cyan/50 hover:text-cyan transition-all"
-          >
-            [ get in touch ]
-          </a>
-        </div>
-
-        <div className="mt-8 max-w-xl rounded border border-line bg-panel/80 p-4">
-          <p className="font-mono text-[11px] uppercase tracking-widest text-cyan mb-3">
-            // github contributions
-          </p>
-          <img
-            src="https://ghchart.rshah.org/00FF41/demigod2605"
-            alt="GitHub contribution graph for demigod2605"
-            loading="lazy"
-            className="w-full"
-          />
+          <div className="shrink-0 mx-auto lg:mx-0">
+            <div className="relative inline-block">
+              <div
+                aria-hidden
+                className="absolute -inset-4 bg-cyan/10 blur-2xl rounded-full"
+              />
+              <img
+                src="/profile.jpg"
+                alt="Austin Manila profile photo"
+                loading="lazy"
+                className="relative w-56 sm:w-64 rounded-md border border-cyan/40 shadow-glow object-cover aspect-[1179/2048]"
+              />
+              <span className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 font-mono text-[10px] uppercase tracking-widest text-cyan bg-void/90 border border-line rounded px-2 py-1 whitespace-nowrap">
+                austin_manila.jpg
+              </span>
+            </div>
+          </div>
         </div>
       </Reveal>
 
