@@ -17,7 +17,6 @@ import { FaHtml5, FaCss3 } from "react-icons/fa";
 import { MdApi } from "react-icons/md";
 import type { IconType } from "react-icons";
 import Reveal from "./Reveal";
-import Panel from "./Panel";
 
 type Skill = { name: string; proficiency: number; Icon?: IconType };
 
@@ -34,15 +33,15 @@ const groups: { key: string; items: Skill[] }[] = [
   {
     key: "frameworks",
     items: [
-      { name: "React", proficiency: 90, Icon: SiReact },
-      { name: "Next.js", proficiency: 90, Icon: SiNextdotjs },
-      { name: "Tailwind CSS", proficiency: 95, Icon: SiTailwindcss },
+      { name: "React", proficiency: 100, Icon: SiReact },
+      { name: "Next.js", proficiency: 100, Icon: SiNextdotjs },
+      { name: "Tailwind CSS", proficiency: 98, Icon: SiTailwindcss },
     ],
   },
   {
     key: "backend",
     items: [
-      { name: "Supabase", proficiency: 85, Icon: SiSupabase },
+      { name: "Supabase", proficiency: 88, Icon: SiSupabase },
       { name: "PostgreSQL", proficiency: 85, Icon: SiPostgresql },
       { name: "REST APIs", proficiency: 90, Icon: MdApi },
     ],
@@ -52,7 +51,7 @@ const groups: { key: string; items: Skill[] }[] = [
     items: [
       { name: "Figma", proficiency: 85, Icon: SiFigma },
       { name: "Git", proficiency: 90, Icon: SiGit },
-      { name: "Vercel", proficiency: 85, Icon: SiVercel },
+      { name: "Vercel", proficiency: 90, Icon: SiVercel },
     ],
   },
 ];
@@ -88,14 +87,13 @@ export default function Skills() {
         What I work with
       </h2>
 
-      <div className="grid sm:grid-cols-2 gap-6">
+      <div className="grid sm:grid-cols-2 gap-10">
         {groups.map((group, i) => (
           <Reveal key={group.key} delay={(i % 2) * 120}>
-            <Panel
-              accent={(["cyan", "violet", "amber", "muted"] as const)[i % 4]}
-              label={group.key}
-              className="p-6"
-            >
+            <div>
+              <p className="font-mono text-xs uppercase tracking-widest text-muted mb-4">
+                {group.key}
+              </p>
               <div className="flex flex-col gap-4">
                 {group.items.map((skill) => (
                   <div key={skill.name}>
@@ -131,7 +129,7 @@ export default function Skills() {
                   </div>
                 ))}
               </div>
-            </Panel>
+            </div>
           </Reveal>
         ))}
       </div>
