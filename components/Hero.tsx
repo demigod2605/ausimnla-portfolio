@@ -100,38 +100,12 @@ export default function Hero() {
                 aria-hidden
                 className="absolute -inset-4 bg-cyan/10 blur-2xl rounded-full"
               />
-              <div className="relative overflow-hidden rounded-md border border-cyan/50 shadow-glow holo-flicker">
-                <img
-                  src="/profile.jpg"
-                  alt="Austin Manila profile photo"
-                  loading="lazy"
-                  className="relative w-56 sm:w-64 object-cover aspect-[1179/2048] holo-img holo-glitch"
-                />
-                <div
-                  aria-hidden
-                  className="absolute inset-0 holo-scanlines pointer-events-none"
-                />
-                <div aria-hidden className="holo-sweep" />
-                <span
-                  aria-hidden
-                  className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-cyan pointer-events-none"
-                />
-                <span
-                  aria-hidden
-                  className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-cyan pointer-events-none"
-                />
-                <span
-                  aria-hidden
-                  className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-cyan pointer-events-none"
-                />
-                <span
-                  aria-hidden
-                  className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-cyan pointer-events-none"
-                />
-              </div>
-              <span className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 font-mono text-[10px] uppercase tracking-widest text-cyan bg-void/90 border border-line rounded px-2 py-1 whitespace-nowrap">
-                austin_manila.jpg
-              </span>
+              <img
+                src="/profile.jpg"
+                alt="Austin Manila profile photo"
+                loading="lazy"
+                className="relative w-56 sm:w-64 rounded-md border border-cyan/40 shadow-glow object-cover aspect-[1179/2048]"
+              />
             </div>
           </div>
         </div>
