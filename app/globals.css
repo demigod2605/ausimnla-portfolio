@@ -121,6 +121,60 @@ body {
   }
 }
 
+/* hologram effect for the profile image */
+.holo-img {
+  filter: saturate(0.8) contrast(1.1) hue-rotate(60deg) brightness(1.05);
+}
+.holo-scanlines {
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 65, 0.12) 0px,
+    rgba(0, 255, 65, 0.12) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+.holo-sweep {
+  position: absolute;
+  top: -25%;
+  left: -10%;
+  right: -10%;
+  height: 22%;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(0, 255, 65, 0.28),
+    transparent
+  );
+  animation: holo-sweep 2.8s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes holo-sweep {
+  0% { top: -25%; }
+  100% { top: 115%; }
+}
+.holo-flicker {
+  animation: holo-flicker 4s linear infinite;
+}
+@keyframes holo-flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.82; }
+  94% { opacity: 1; }
+  97% { opacity: 0.9; }
+  98% { opacity: 1; }
+}
+.holo-glitch {
+  animation: holo-glitch 6s steps(1) infinite;
+}
+@keyframes holo-glitch {
+  0%, 100% { transform: none; }
+  95.9% { transform: none; }
+  96% { transform: translateX(2px); }
+  96.4% { transform: translateX(-2px); }
+  96.8% { transform: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
