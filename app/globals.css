@@ -7,55 +7,36 @@ html {
 }
 
 body {
-  background-color: #000503;
+  background-color: #05070B;
   background-image:
-    linear-gradient(rgba(0,255,65,0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,255,65,0.045) 1px, transparent 1px),
-    radial-gradient(circle at 85% 0%, rgba(0,255,65,0.07), transparent 45%),
-    radial-gradient(circle at 5% 60%, rgba(0,204,102,0.05), transparent 45%);
+    linear-gradient(rgba(94,234,212,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94,234,212,0.05) 1px, transparent 1px),
+    radial-gradient(circle at 85% 0%, rgba(94,234,212,0.08), transparent 45%),
+    radial-gradient(circle at 5% 60%, rgba(155,140,255,0.07), transparent 45%);
   background-size: 42px 42px, 42px 42px, 100% 100%, 100% 100%;
-  color: #C9FFE0;
-}
-
-/* CRT scanline overlay */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.14) 0px,
-      rgba(0, 0, 0, 0.14) 1px,
-      transparent 1px,
-      transparent 3px
-    ),
-    linear-gradient(rgba(0, 255, 65, 0.025), rgba(0, 255, 65, 0.025));
 }
 
 ::selection {
-  background: #00FF41;
-  color: #000503;
+  background: #5EEAD4;
+  color: #05070B;
 }
 
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #000503;
+  background: #05070B;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0A3B22;
+  background: #1C2733;
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #00FF41;
+  background: #5EEAD4;
 }
 
 :focus-visible {
-  outline: 2px solid #00FF41;
+  outline: 2px solid #5EEAD4;
   outline-offset: 2px;
 }
 
@@ -117,7 +98,7 @@ body::after {
   top: 0;
   bottom: 0;
   width: 40%;
-  background: linear-gradient(90deg, transparent, rgba(0,255,65,0.45), transparent);
+  background: linear-gradient(90deg, transparent, rgba(230, 238, 242, 0.4), transparent);
   animation: bar-sweep 2.2s ease-in-out infinite;
 }
 @keyframes bar-sweep {
@@ -145,9 +126,4 @@ body::after {
     opacity: 1;
     transform: none;
   }
-}
-
-/* soft green glow for accent text */
-.text-glow {
-  text-shadow: 0 0 10px rgba(0, 255, 65, 0.45);
 }

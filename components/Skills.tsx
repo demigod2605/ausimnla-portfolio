@@ -88,7 +88,7 @@ export default function Skills() {
         What I work with
       </h2>
 
-        <div className="grid sm:grid-cols-2 gap-10">
+      <div className="grid sm:grid-cols-2 gap-10">
         {groups.map((group, i) => (
           <Reveal key={group.key} delay={(i % 2) * 120}>
             <Panel

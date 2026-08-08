@@ -4,44 +4,37 @@ import { useEffect, useState } from "react";
 
 const EMAIL = "shaneaustinmmanila@gmail.com";
 const MAILTO = `mailto:${EMAIL}`;
-const GMAIL_COMPOSE = `https://mail.google.com/mail/u/0/?to=${EMAIL}&tf=cm`;
-const GMAIL_INTENT = `intent:${EMAIL}#Intent;scheme=mailto;action=android.intent.action.SENDTO;package=com.google.android.gm;S.browser_fallback_url=${encodeURIComponent(GMAIL_COMPOSE)};end`;
+const GMAIL_COMPOSE = `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}`;
 
-type Mode = "compose" | "intent" | "mailto";
-
-function detectMode(): Mode {
-  const ua = navigator.userAgent;
-  const isAndroid = /Android/i.test(ua);
-  const isMobile = isAndroid || /iPhone|iPad|iPod/i.test(ua);
-  const isAndroidFirefox = isAndroid && /Firefox|FxiOS/i.test(ua);
-  if (isAndroid && !isAndroidFirefox) return "intent";
-  if (isMobile) return "mailto";
-  return "compose";
+function isTouchDevice() {
+  return "ontouchstart" in window || navigator.maxTouchPoints > 0;
 }
 
 export default function EmailLinks() {
-  const [mode, setMode] = useState<Mode>("compose");
+  const [href, setHref] = useState(MAILTO);
 
   useEffect(() => {
-    setMode(detectMode());
+    setHref(isTouchDevice() ? GMAIL_COMPOSE : MAILTO);
   }, []);
 
-  const href =
-    mode === "intent" ? GMAIL_INTENT : mode === "mailto" ? MAILTO : GMAIL_COMPOSE;
+  const opensNewTab = href.startsWith("http");
+
+  const linkProps = opensNewTab
+    ? { target: "_blank", rel: "noopener noreferrer" }
+    : {};
 
   return (
     <>
       <a
         href={href}
-        {...(mode === "compose"
-          ? { target: "_blank", rel: "noopener noreferrer" }
-          : {})}
+        {...linkProps}
         className="px-5 py-2.5 rounded border border-cyan/50 text-cyan font-mono text-sm hover:bg-cyan hover:text-void hover:shadow-glow transition-all"
       >
         [ send email ]
       </a>
       <a
-        href={MAILTO}
+        href={href}
+        {...linkProps}
         className="font-mono text-xs text-muted hover:text-cyan transition-colors"
       >
         {EMAIL}
