@@ -3,7 +3,8 @@ const links = [
   { href: "#education", label: "EDUCATION", n: "02" },
   { href: "#skills", label: "SKILLS", n: "03" },
   { href: "#projects", label: "PROJECTS", n: "04" },
-  { href: "#contact", label: "CONTACT", n: "05" },
+  { href: "#certificates", label: "CERTIFICATES", n: "05" },
+  { href: "#contact", label: "CONTACT", n: "06" },
 ];
 
 import Logo from "./Logo";
