@@ -35,7 +35,7 @@ export default function About() {
                 // interests
               </p>
               <div className="flex flex-wrap gap-2">
-                {["AI", "Web Development", "Data Analytics"].map((interest) => (
+                {["AI", "Frontend Development", "Data Analytics"].map((interest) => (
                   <span
                     key={interest}
                     className="font-mono text-xs px-3 py-1.5 rounded border border-line text-cyan bg-panel/60 hover:border-cyan/50 hover:shadow-glow-sm transition-all"
