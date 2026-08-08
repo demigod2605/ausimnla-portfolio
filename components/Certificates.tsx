@@ -9,11 +9,23 @@ import Tilt from "./Tilt";
 
 const accents: Array<"cyan" | "amber" | "violet"> = ["cyan", "amber", "violet"];
 
+const MIN_SCALE = 1;
+const MAX_SCALE = 5;
+
 export default function Certificates() {
   const [selected, setSelected] = useState<Certificate | null>(null);
+  const [scale, setScale] = useState(MIN_SCALE);
+  const [origin, setOrigin] = useState({ x: 50, y: 50 });
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const [dragging, setDragging] = useState(false);
+  const [start, setStart] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     if (!selected) return;
+    setScale(MIN_SCALE);
+    setPos({ x: 0, y: 0 });
+    setOrigin({ x: 50, y: 50 });
+    setDragging(false);
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setSelected(null);
     };
@@ -24,6 +36,45 @@ export default function Certificates() {
       document.body.style.overflow = "";
     };
   }, [selected]);
+
+  function zoomBy(delta: number) {
+    setScale((s) => Math.min(Math.max(s + delta, MIN_SCALE), MAX_SCALE));
+  }
+
+  function handleWheel(e: React.WheelEvent) {
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setOrigin({ x, y });
+    setScale((s) =>
+      Math.min(Math.max(s - e.deltaY * 0.002, MIN_SCALE), MAX_SCALE)
+    );
+  }
+
+  function handlePointerDown(e: React.PointerEvent) {
+    if (scale <= MIN_SCALE) return;
+    setDragging(true);
+    setStart({ x: e.clientX, y: e.clientY });
+  }
+
+  function handlePointerMove(e: React.PointerEvent) {
+    if (!dragging) return;
+    setPos((p) => ({
+      x: p.x + e.clientX - start.x,
+      y: p.y + e.clientY - start.y,
+    }));
+    setStart({ x: e.clientX, y: e.clientY });
+  }
+
+  function handlePointerUp() {
+    setDragging(false);
+  }
+
+  function resetZoom() {
+    setScale(MIN_SCALE);
+    setPos({ x: 0, y: 0 });
+    setOrigin({ x: 50, y: 50 });
+  }
 
   return (
     <section id="certificates" className="max-w-6xl mx-auto px-5 sm:px-8 py-20">
@@ -85,6 +136,42 @@ export default function Certificates() {
           onClick={() => setSelected(null)}
           className="fixed inset-0 z-[200] bg-void/95 backdrop-blur flex items-center justify-center p-4 sm:p-10"
         >
+          <div className="absolute top-4 left-4 flex items-center gap-2 font-mono text-xs">
+            <button
+              type="button"
+              aria-label="Zoom out"
+              onClick={(e) => {
+                e.stopPropagation();
+                zoomBy(-0.5);
+              }}
+              className="w-10 h-10 rounded-md border border-line text-cyan hover:bg-cyan hover:text-void hover:shadow-glow transition-all"
+            >
+              −
+            </button>
+            <button
+              type="button"
+              aria-label="Reset zoom"
+              onClick={(e) => {
+                e.stopPropagation();
+                resetZoom();
+              }}
+              className="h-10 px-3 rounded-md border border-line text-cyan font-mono text-xs hover:bg-cyan hover:text-void hover:shadow-glow transition-all"
+            >
+              {Math.round(scale * 100)}%
+            </button>
+            <button
+              type="button"
+              aria-label="Zoom in"
+              onClick={(e) => {
+                e.stopPropagation();
+                zoomBy(0.5);
+              }}
+              className="w-10 h-10 rounded-md border border-line text-cyan hover:bg-cyan hover:text-void hover:shadow-glow transition-all"
+            >
+              +
+            </button>
+          </div>
+
           <button
             type="button"
             aria-label="Close"
@@ -93,12 +180,29 @@ export default function Certificates() {
           >
             ×
           </button>
-          <img
-            src={selected.image}
-            alt={selected.title}
+
+          <div
+            onWheel={handleWheel}
+            onPointerDown={handlePointerDown}
+            onPointerMove={handlePointerMove}
+            onPointerUp={handlePointerUp}
+            onPointerLeave={handlePointerUp}
             onClick={(e) => e.stopPropagation()}
-            className="max-w-full max-h-full object-contain rounded border border-line shadow-glow"
-          />
+            className="flex items-center justify-center max-w-full max-h-full overflow-hidden touch-none select-none"
+            style={{ cursor: dragging ? "grabbing" : scale > 1 ? "zoom-out" : "zoom-in" }}
+          >
+            <img
+              src={selected.image}
+              alt={selected.title}
+              draggable={false}
+              className="max-w-full max-h-full object-contain rounded border border-line shadow-glow"
+              style={{
+                transform: `scale(${scale}) translate(${pos.x}px, ${pos.y}px)`,
+                transformOrigin: `${origin.x}% ${origin.y}%`,
+                transition: dragging ? "none" : "transform 0.12s ease-out",
+              }}
+            />
+          </div>
         </div>
       )}
     </section>
