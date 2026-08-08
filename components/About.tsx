@@ -29,6 +29,42 @@ export default function About() {
               with Next.js and Tailwind CSS, and I'm always exploring new
               tools that make the web faster and more delightful.
             </p>
+
+            <div className="mb-6">
+              <p className="font-mono text-xs uppercase tracking-widest text-cyan/70 mb-3">
+                // interests
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {["AI", "Web Development", "Data Analytics"].map((interest) => (
+                  <span
+                    key={interest}
+                    className="font-mono text-xs px-3 py-1.5 rounded border border-line text-cyan bg-panel/60 hover:border-cyan/50 hover:shadow-glow-sm transition-all"
+                  >
+                    {interest}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="mb-6">
+              <p className="font-mono text-xs uppercase tracking-widest text-cyan/70 mb-3">
+                // objectives
+              </p>
+              <ul className="grid grid-cols-2 gap-3">
+                {["learn", "create", "build", "deploy"].map((objective, i) => (
+                  <li
+                    key={objective}
+                    className="flex items-center gap-2.5 px-3 py-2.5 rounded-md border border-line bg-panel/60"
+                  >
+                    <span className="font-mono text-xs text-cyan">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="font-mono text-xs text-text">{objective}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             <p className="inline-flex items-center gap-2 font-mono text-xs text-cyan">
               <span className="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse2" />
               Based in the Philippines
