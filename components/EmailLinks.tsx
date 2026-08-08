@@ -23,10 +23,17 @@ function detectMode(): Mode {
 
 export default function EmailLinks() {
   const [mode, setMode] = useState<Mode>("compose");
+  const [opening, setOpening] = useState(false);
 
   useEffect(() => {
     setMode(detectMode());
   }, []);
+
+  const handleOpen = () => {
+    if (opening) return;
+    setOpening(true);
+    window.setTimeout(() => setOpening(false), 1600);
+  };
 
   const href =
     mode === "intent" ? GMAIL_INTENT : mode === "mailto" ? MAILTO : GMAIL_COMPOSE;
@@ -35,18 +42,26 @@ export default function EmailLinks() {
     <>
       <a
         href={href}
+        onClick={handleOpen}
+        aria-disabled={opening}
         {...(mode === "compose"
           ? { target: "_blank", rel: "noopener noreferrer" }
           : {})}
         className="px-5 py-2.5 rounded border border-cyan/50 text-cyan font-mono text-sm hover:bg-cyan hover:text-void hover:shadow-glow transition-all"
       >
-        [ send email ]
+        {opening ? (
+          <span className="animate-pulse2">[ opening… ]</span>
+        ) : (
+          "[ send email ]"
+        )}
       </a>
       <a
         href={MAILTO}
+        onClick={handleOpen}
+        aria-disabled={opening}
         className="font-mono text-xs text-muted hover:text-cyan transition-colors"
       >
-        {EMAIL}
+        {opening ? "opening…" : EMAIL}
       </a>
     </>
   );
