@@ -8,7 +8,7 @@ export default function Contact() {
   return (
     <section id="contact" className="max-w-6xl mx-auto px-5 sm:px-8 py-20">
       <p className="font-mono text-xs text-cyan/70 uppercase tracking-widest mb-4">
-        // 05 — contact
+        // 06 — contact
       </p>
       <h2 className="font-display font-bold text-3xl sm:text-4xl mb-10 text-text">
         Let's build something

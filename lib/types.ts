@@ -15,3 +15,11 @@ export type Project = {
   images?: ProjectImage[];
   highlights?: string[];
 };
+
+export type Certificate = {
+  id: string;
+  title: string;
+  issuer: string;
+  year: string;
+  image: string;
+};
